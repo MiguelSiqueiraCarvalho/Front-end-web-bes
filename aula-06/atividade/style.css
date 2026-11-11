@@ -1,0 +1,355 @@
+/* ===== Reset e variáveis ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --vermelho: #ff4655;
+  --vermelho-escuro: #bd3944;
+  --fundo: #0f1923;
+  --fundo-card: #1b2733;
+  --texto: #ece8e1;
+  --texto-suave: #9aa5b1;
+  --borda: #2c3b4a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Arial Black", Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== Cabeçalho / Menu (FLEX) ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(15, 25, 35, 0.95);
+  border-bottom: 2px solid var(--vermelho);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.logo {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: 1.6rem;
+  color: var(--vermelho);
+  letter-spacing: 3px;
+}
+
+.menu ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.menu a {
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.menu a:hover {
+  color: var(--vermelho);
+}
+
+/* ===== Hero (FLEX) ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+  padding: 40px 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 70, 85, 0.18) 0%, transparent 55%),
+    linear-gradient(315deg, rgba(255, 70, 85, 0.1) 0%, transparent 50%),
+    var(--fundo);
+}
+
+.hero .etiqueta {
+  color: var(--vermelho);
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 1.05;
+}
+
+.hero h1 span {
+  color: var(--vermelho);
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 20px 0 30px;
+  color: var(--texto-suave);
+  font-size: 1.1rem;
+}
+
+.botao {
+  display: inline-block;
+  background-color: var(--vermelho);
+  color: var(--texto);
+  padding: 14px 34px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 92% 100%, 0 100%);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.botao:hover {
+  background-color: var(--vermelho-escuro);
+  transform: translateY(-2px);
+}
+
+/* ===== Seções ===== */
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 24px;
+}
+
+.titulo-secao {
+  margin-bottom: 36px;
+  border-left: 6px solid var(--vermelho);
+  padding-left: 16px;
+}
+
+.titulo-secao h2 {
+  font-size: 2rem;
+}
+
+.titulo-secao p {
+  color: var(--texto-suave);
+}
+
+/* ===== Lore (GRID de 2 colunas) ===== */
+.lore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.lore-card {
+  background-color: var(--fundo-card);
+  border: 1px solid var(--borda);
+  border-top: 4px solid var(--vermelho);
+  padding: 26px;
+}
+
+.lore-card h3 {
+  color: var(--vermelho);
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+}
+
+.lore-card p {
+  color: var(--texto-suave);
+}
+
+/* ===== Linha do tempo (FLEX) ===== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-left: 3px solid var(--vermelho);
+  padding-left: 28px;
+}
+
+.evento {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--fundo-card);
+  padding: 18px 22px;
+  border: 1px solid var(--borda);
+}
+
+.evento .data {
+  flex-shrink: 0;
+  min-width: 130px;
+  color: var(--vermelho);
+  font-family: "Arial Black", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.evento p {
+  color: var(--texto-suave);
+}
+
+/* ===== Agentes (GRID de 3 colunas) ===== */
+.agentes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.agente {
+  background-color: var(--fundo-card);
+  border: 1px solid var(--borda);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.agente::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--vermelho);
+}
+
+.agente:hover {
+  transform: translateY(-6px);
+  border-color: var(--vermelho);
+}
+
+.agente .topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.agente h3 {
+  font-size: 1.4rem;
+}
+
+.funcao {
+  background-color: var(--vermelho);
+  color: var(--texto);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.origem {
+  color: var(--vermelho);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.agente p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ===== Criação do jogo (GRID de curiosidades) ===== */
+.criacao-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.fato {
+  background-color: var(--fundo-card);
+  border: 1px solid var(--borda);
+  padding: 24px;
+  text-align: center;
+}
+
+.fato .numero {
+  display: block;
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: 2.4rem;
+  color: var(--vermelho);
+  margin-bottom: 6px;
+}
+
+.fato p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ===== Rodapé ===== */
+footer {
+  text-align: center;
+  padding: 30px 24px;
+  border-top: 2px solid var(--vermelho);
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .agentes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu ul {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .lore-grid,
+  .agentes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evento {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* ===== Imagem dos agentes ===== */
+.agente .foto {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top center;
+  background-color: var(--fundo);
+  border: 1px solid var(--borda);
+  margin-bottom: 16px;
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+}
